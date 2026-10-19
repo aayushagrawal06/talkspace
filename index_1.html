@@ -1,0 +1,1930 @@
+<title>Talkspace City Mockups</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --brand: #005c65;
+  --brand-light: #e1f0ee;
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --fg-muted: #555;
+  --border: #e0e0e0;
+  --card-bg: #fff;
+  --section-bg: #f7fafa;
+  --hero-bg: #e1f0ee;
+  --accent-green: #2e7d32;
+  --accent-red: #c62828;
+  --tag-bg: #f0f0f0;
+  --tag-text: #333;
+  --highlight-tag-bg: #005c65;
+  --highlight-tag-text: #fff;
+  --sidebar-bg: #f7fafa;
+  --footer-bg: #1a2e35;
+  --footer-fg: #ccc;
+  --promo-bg: #005c65;
+  --promo-fg: #fff;
+  --cta-bg: #005c65;
+  --cta-fg: #fff;
+  --faq-border: #ddd;
+  --nav-bg: #fff;
+  --nav-border: #e0e0e0;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1a1c; --fg: #e0e0e0; --fg-muted: #aaa; --border: #2a3a3e;
+    --card-bg: #162225; --section-bg: #111e21; --hero-bg: #0d2a2e;
+    --tag-bg: #1e2e32; --tag-text: #ccc;
+    --sidebar-bg: #111e21; --nav-bg: #0f1a1c; --nav-border: #2a3a3e;
+    --faq-border: #2a3a3e; --footer-bg: #0a1215; --footer-fg: #999;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1a1c; --fg: #e0e0e0; --fg-muted: #aaa; --border: #2a3a3e;
+  --card-bg: #162225; --section-bg: #111e21; --hero-bg: #0d2a2e;
+  --tag-bg: #1e2e32; --tag-text: #ccc;
+  --sidebar-bg: #111e21; --nav-bg: #0f1a1c; --nav-border: #2a3a3e;
+  --faq-border: #2a3a3e; --footer-bg: #0a1215; --footer-fg: #999;
+  color-scheme: dark;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: 'Source Serif 4', Georgia, serif; }
+
+/* Promo Bar */
+.promo-bar { background: var(--promo-bg); color: var(--promo-fg); text-align: center; padding: 10px 16px; font-size: 13px; }
+.promo-bar a { color: #a8e6cf; text-decoration: underline; }
+
+/* Nav */
+.nav { background: var(--nav-bg); border-bottom: 1px solid var(--nav-border); padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.nav-logo { font-family: 'Source Serif 4', serif; font-size: 26px; font-weight: 700; color: var(--brand); text-decoration: none; letter-spacing: -0.5px; }
+.nav-links { display: flex; gap: 24px; align-items: center; font-size: 14px; flex-wrap: wrap; }
+.nav-links a { color: var(--fg); text-decoration: none; }
+.nav-links a:hover { color: var(--brand); }
+.btn-nav { background: var(--brand); color: #fff; border: none; padding: 10px 24px; border-radius: 24px; font-size: 14px; cursor: pointer; font-weight: 600; }
+
+/* City Tabs */
+.city-tabs { max-width: 1200px; margin: 20px auto 0; display: flex; gap: 0; }
+.city-tab { padding: 12px 28px; font-size: 15px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); border-bottom: none; background: var(--section-bg); color: var(--fg-muted); border-radius: 8px 8px 0 0; transition: all .2s; }
+.city-tab.active { background: var(--bg); color: var(--brand); border-bottom-color: var(--bg); }
+.city-content { display: none; }
+.city-content.active { display: block; }
+
+/* Breadcrumb */
+.breadcrumb { max-width: 1200px; margin: 16px auto 8px; font-size: 13px; color: var(--fg-muted); }
+.breadcrumb a { color: var(--brand); text-decoration: none; }
+
+/* Hero */
+.hero { max-width: 1200px; margin: 0 auto 20px; background: var(--hero-bg); border-radius: 12px; padding: 36px 32px; }
+.hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; color: var(--fg); }
+.hero p { font-size: 15px; color: var(--fg-muted); max-width: 700px; }
+
+/* Filter Bar */
+.filter-bar { max-width: 1200px; margin: 0 auto 24px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.filter-bar select {
+  padding: 9px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; -webkit-appearance: none; -moz-appearance: none; appearance: none; pointer-events: none;
+  background: var(--card-bg); color: var(--fg); cursor: pointer; min-width: 140px;
+}
+
+/* Main Layout */
+.main-layout { max-width: 1200px; margin: 0 auto 40px; display: grid; grid-template-columns: 1fr 320px; gap: 28px; }
+@media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } }
+
+/* Provider Card - Row Style */
+.provider-list { display: flex; flex-direction: column; gap: 16px; }
+.provider-card {
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 24px;
+  display: grid; grid-template-columns: 200px 1fr 200px; gap: 20px; align-items: start;
+}
+@media (max-width: 768px) { .provider-card { grid-template-columns: 1fr; } }
+
+.provider-identity { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+.provider-avatar {
+  width: 80px; height: 80px; border-radius: 50%; background: var(--brand-light); color: var(--brand);
+  display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700;
+  font-family: 'Source Serif 4', serif;
+}
+.provider-name { font-family: 'Source Serif 4', serif; font-size: 17px; font-weight: 600; }
+.provider-creds { font-size: 12px; color: var(--fg-muted); }
+.provider-type-tag {
+  display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 20px;
+  background: var(--brand-light); color: var(--brand); font-weight: 600; margin-top: 4px;
+}
+.provider-license { font-size: 12px; color: var(--fg-muted); margin-top: 4px; }
+.provider-state { font-size: 12px; color: var(--fg-muted); }
+
+.provider-details { min-width: 0; }
+.concern-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.concern-tag {
+  font-size: 12px; padding: 4px 10px; border-radius: 20px;
+  background: var(--tag-bg); color: var(--tag-text);
+}
+.concern-tag.highlighted { background: var(--highlight-tag-bg); color: var(--highlight-tag-text); }
+.provider-bio { font-size: 14px; color: var(--fg-muted); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 8px; }
+.expand-section { margin-bottom: 6px; }
+.expand-toggle {
+  font-size: 13px; color: var(--brand); cursor: pointer; background: none; border: none;
+  font-weight: 600; display: flex; align-items: center; gap: 4px;
+}
+.expand-toggle:hover { text-decoration: underline; }
+.expand-content { display: none; font-size: 13px; color: var(--fg-muted); padding: 8px 0 4px; line-height: 1.5; }
+.expand-content.open { display: block; }
+.read-more { font-size: 13px; color: var(--brand); text-decoration: none; font-weight: 500; }
+.read-more:hover { text-decoration: underline; }
+
+.provider-actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+.provider-meta { font-size: 12px; color: var(--fg-muted); text-align: right; line-height: 1.8; }
+.provider-meta strong { color: var(--fg); font-weight: 600; }
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+.status-dot.accepting { background: var(--accent-green); }
+.status-dot.waitlist { background: var(--accent-red); }
+.accepting-text { font-size: 13px; font-weight: 600; }
+.accepting-text.yes { color: var(--accent-green); }
+.accepting-text.no { color: var(--accent-red); }
+.btn-primary {
+  background: var(--brand); color: #fff; border: none; padding: 10px 20px; border-radius: 6px;
+  font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; text-align: center;
+}
+.btn-primary:hover { opacity: .9; }
+.btn-secondary {
+  background: transparent; color: var(--brand); border: 2px solid var(--brand); padding: 8px 20px;
+  border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; text-align: center;
+}
+.insurance-line { font-size: 11px; color: var(--fg-muted); text-align: right; margin-top: 4px; }
+
+/* Pagination */
+.pagination { text-align: center; padding: 16px 0; font-size: 14px; color: var(--fg-muted); }
+.pagination a { color: var(--brand); text-decoration: none; font-weight: 600; margin: 0 4px; }
+
+/* Sidebar */
+.sidebar { display: flex; flex-direction: column; gap: 16px; }
+.sidebar-card { background: var(--sidebar-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+.sidebar-card h3 { font-size: 17px; margin-bottom: 8px; }
+.sidebar-card p { font-size: 13px; color: var(--fg-muted); margin-bottom: 12px; }
+.sidebar-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.sidebar-pill { font-size: 12px; padding: 4px 10px; background: var(--tag-bg); border-radius: 20px; color: var(--tag-text); }
+.sidebar-link { color: var(--brand); font-size: 13px; text-decoration: none; font-weight: 600; }
+.sidebar-link:hover { text-decoration: underline; }
+.crisis-strip { background: #fdf2f2; border: 1px solid #f5c6c6; border-radius: 8px; padding: 14px; font-size: 13px; color: #b71c1c; }
+.crisis-strip strong { display: block; margin-bottom: 4px; }
+
+/* Content Sections */
+.content-sections { max-width: 1200px; margin: 0 auto 40px; }
+.content-section { padding: 32px 0; border-bottom: 1px solid var(--border); }
+.content-section:last-child { border-bottom: none; }
+.content-section h2 { font-size: 26px; margin-bottom: 12px; }
+.content-section p { font-size: 15px; color: var(--fg-muted); margin-bottom: 12px; max-width: 800px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
+@media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+.two-col h3 { font-size: 18px; margin-bottom: 8px; }
+.two-col ul { list-style: none; padding: 0; }
+.two-col li { font-size: 14px; color: var(--fg-muted); padding: 5px 0; padding-left: 20px; position: relative; }
+.two-col li::before { content: "\2713"; position: absolute; left: 0; color: var(--brand); font-weight: 700; }
+.split-section { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+@media (max-width: 768px) { .split-section { grid-template-columns: 1fr; gap: 16px; } }
+.split-left h2 { font-size: 28px; line-height: 1.25; margin-bottom: 8px; }
+.split-left p { font-size: 14px; color: var(--fg-muted); margin: 0; }
+.split-right p { font-size: 15px; color: var(--fg-muted); margin-bottom: 16px; }
+.split-right .stat-columns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+@media (max-width: 768px) { .split-right .stat-columns { grid-template-columns: 1fr; } }
+.stat-columns h4 { font-size: 14px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
+.stat-columns ul { list-style: none; padding: 0; }
+.stat-columns li { font-size: 14px; color: var(--fg-muted); padding: 4px 0 4px 18px; position: relative; }
+.stat-columns li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); position: absolute; left: 0; top: 10px; }
+.split-right .help-bullets { list-style: none; padding: 0; margin-top: 8px; }
+.help-bullets li { font-size: 15px; color: var(--fg-muted); padding: 6px 0 6px 24px; position: relative; }
+.help-bullets li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); position: absolute; left: 0; top: 13px; }
+.help-bullets strong { color: var(--fg); }
+.browse-approaches { margin-top: 16px; }
+.browse-approaches h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+.browse-approaches span { display: inline-block; font-size: 13px; border: 1px solid var(--border); border-radius: 20px; padding: 6px 14px; margin-right: 8px; margin-bottom: 6px; color: var(--fg-muted); }
+
+/* FAQs */
+.faq-section { max-width: 1200px; margin: 0 auto 40px; }
+.faq-section h2 { font-size: 26px; margin-bottom: 16px; text-align: center; }
+.faq-item { border-bottom: 1px solid var(--faq-border); }
+.faq-q {
+  width: 100%; padding: 16px 0; background: none; border: none; font-size: 15px; font-weight: 600;
+  color: var(--fg); cursor: pointer; text-align: left; display: flex; justify-content: space-between; align-items: center;
+}
+.faq-q::after { content: "+"; font-size: 20px; color: var(--brand); flex-shrink: 0; margin-left: 12px; }
+.faq-q.open::after { content: "\2212"; }
+.faq-a { display: none; padding: 0 0 16px; font-size: 14px; color: var(--fg-muted); line-height: 1.6; }
+.faq-a.open { display: block; }
+
+/* CTA */
+.cta-section { background: var(--hero-bg); border-radius: 12px; max-width: 1200px; margin: 0 auto 40px; padding: 40px 32px; text-align: center; }
+.cta-section h2 { font-size: 28px; margin-bottom: 12px; }
+.cta-section p { color: var(--fg-muted); margin-bottom: 20px; }
+.cta-steps { display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; flex-wrap: wrap; }
+.cta-step { text-align: center; max-width: 180px; }
+.cta-step .num { width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 8px; }
+.cta-step .label { font-size: 14px; color: var(--fg); }
+
+/* Explore */
+.explore-section { max-width: 1200px; margin: 0 auto 40px; }
+.explore-section h2 { font-size: 26px; margin-bottom: 16px; }
+.tab-bar { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 16px; flex-wrap: wrap; }
+.tab-btn {
+  padding: 10px 20px; font-size: 14px; font-weight: 600; cursor: pointer; border: none;
+  background: none; color: var(--fg-muted); border-bottom: 2px solid transparent; margin-bottom: -2px;
+}
+.tab-btn.active { color: var(--brand); border-bottom-color: var(--brand); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+.link-grid a { font-size: 14px; color: var(--brand); text-decoration: none; padding: 8px 0; }
+.link-grid a:hover { text-decoration: underline; }
+.link-grid.collapsed a:nth-child(n+6) { display: none; }
+.show-all-btn { background: none; border: 1px solid var(--brand); color: var(--brand); padding: 8px 20px; border-radius: 20px; font-size: 13px; cursor: pointer; margin-top: 12px; font-family: var(--font-body); transition: background 0.2s, color 0.2s; }
+.show-all-btn:hover { background: var(--brand); color: #fff; }
+
+/* How It Works */
+.how-it-works { padding: 48px 16px; max-width: 1200px; margin: 0 auto; }
+.how-it-works h2 { font-family: var(--font-heading); font-size: 28px; margin-bottom: 8px; }
+.how-it-works .subtitle { color: var(--fg-muted); font-size: 15px; margin-bottom: 32px; }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.step-card { text-align: center; padding: 24px 16px; }
+.step-num { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--brand-light); color: var(--brand); font-weight: 700; font-size: 20px; margin-bottom: 16px; }
+.step-card h3 { font-family: var(--font-heading); font-size: 17px; margin-bottom: 8px; }
+.step-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.5; }
+@media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .steps-grid { grid-template-columns: 1fr; } }
+
+/* Testimonials */
+.testimonials { padding: 48px 16px; max-width: 1200px; margin: 0 auto; }
+.testimonials h2 { font-family: var(--font-heading); font-size: 28px; margin-bottom: 32px; }
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card { background: var(--section-bg); border-radius: 12px; padding: 24px; }
+.testimonial-stars { color: #f5a623; font-size: 16px; margin-bottom: 12px; }
+.testimonial-card blockquote { font-size: 14px; line-height: 1.6; color: var(--fg); margin: 0 0 16px 0; font-style: italic; }
+.testimonial-author { font-size: 13px; font-weight: 600; color: var(--fg-muted); }
+@media (max-width: 768px) { .testimonial-grid { grid-template-columns: 1fr; } }
+
+/* Insurance Info */
+.insurance-info { padding: 48px 16px; max-width: 1200px; margin: 0 auto; }
+.insurance-info h2 { font-family: var(--font-heading); font-size: 28px; margin-bottom: 8px; }
+.insurance-info .subtitle { color: var(--fg-muted); font-size: 15px; margin-bottom: 32px; }
+.insurance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.insurance-card { background: var(--section-bg); border-radius: 12px; padding: 24px; text-align: center; }
+.insurance-card h3 { font-family: var(--font-heading); font-size: 18px; margin-bottom: 8px; }
+.insurance-card .price { font-size: 28px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
+.insurance-card .price-note { font-size: 13px; color: var(--fg-muted); margin-bottom: 16px; }
+.insurance-card ul { list-style: none; padding: 0; text-align: left; }
+.insurance-card ul li { font-size: 14px; padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--fg); }
+.insurance-card ul li:last-child { border-bottom: none; }
+.insurance-logos { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 24px; }
+.insurance-logos span { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--fg); }
+@media (max-width: 768px) { .insurance-grid { grid-template-columns: 1fr; } }
+
+/* Related Articles */
+.related-articles { padding: 48px 16px; max-width: 1200px; margin: 0 auto; }
+.related-articles h2 { font-family: var(--font-heading); font-size: 28px; margin-bottom: 32px; }
+.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.article-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.article-card .article-img { background: var(--brand-light); height: 140px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+.article-card .article-body { padding: 16px; }
+.article-card .article-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--brand); font-weight: 600; margin-bottom: 8px; }
+.article-card h3 { font-family: var(--font-heading); font-size: 16px; margin-bottom: 8px; line-height: 1.4; }
+.article-card h3 a { color: var(--fg); text-decoration: none; }
+.article-card h3 a:hover { color: var(--brand); }
+.article-card p { font-size: 13px; color: var(--fg-muted); line-height: 1.5; }
+@media (max-width: 768px) { .articles-grid { grid-template-columns: 1fr; } }
+
+/* Footer */
+.footer { background: var(--footer-bg); color: var(--footer-fg); padding: 40px 0 20px; margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px))); }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.footer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+@media (max-width: 700px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer h4 { color: #fff; font-size: 14px; margin-bottom: 12px; }
+.footer a { color: var(--footer-fg); text-decoration: none; font-size: 13px; display: block; padding: 3px 0; }
+.footer a:hover { color: #fff; }
+.footer-crisis { border-top: 1px solid #2a3a3e; margin-top: 24px; padding-top: 16px; text-align: center; font-size: 13px; }
+.footer-copy { text-align: center; margin-top: 16px; font-size: 12px; color: #666; }
+</style>
+
+<!-- Promo Bar -->
+<div class="promo-bar">Most insured members have a $0 copay. <a href="https://www.talkspace.com/coverage/insurance">Learn more &rsaquo;</a></div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://www.talkspace.com" class="nav-logo">Talkspace</a>
+    <div class="nav-links">
+      <a href="#">Services <span style="font-size:10px;">&#9662;</span></a>
+      <a href="#">Coverage <span style="font-size:10px;">&#9662;</span></a>
+      <a href="#">For clinicians <span style="font-size:10px;">&#9662;</span></a>
+      <a href="https://business.talkspace.com">For organizations</a>
+    </div>
+    <div class="nav-links">
+      <a href="https://app.talkspace.com">Log in</a>
+      <a href="https://match.talkspace.com/dispatcher" class="btn-nav" style="text-decoration:none;color:#fff;display:inline-block;">Find a therapist</a>
+    </div>
+  </div>
+</nav>
+
+<!-- City Tabs -->
+<div class="city-tabs">
+  <div class="city-tab active" onclick="switchCity('ny')">New York</div>
+  <div class="city-tab" onclick="switchCity('la')">Los Angeles</div>
+</div>
+
+<!-- ============ NEW YORK ============ -->
+<div id="city-ny" class="city-content active">
+
+<div class="breadcrumb"><a href="https://www.talkspace.com">Home</a> &rsaquo; <a href="https://www.talkspace.com/therapists">Find a therapist</a> &rsaquo; <a href="https://www.talkspace.com/therapists/ny">New York</a> &rsaquo; Anxiety</div>
+
+<div class="hero">
+  <h1>Anxiety therapists in New York, NY</h1>
+  <p>Find a licensed anxiety therapist in New York City. According to the NYC Department of Health and Mental Hygiene, approximately 18% of adult New Yorkers report symptoms of an anxiety disorder each year. Our providers are licensed in New York and available online.</p>
+</div>
+
+<div class="filter-bar">
+  <select>
+    <option selected>Concern: Anxiety</option>
+  </select>
+  <select>
+    <option selected>Insurance</option>
+  </select>
+  <select>
+    <option selected>Provider type</option>
+  </select>
+  <select>
+    <option selected>Age group</option>
+  </select>
+  <select>
+    <option selected>Service type</option>
+  </select>
+</div>
+
+<div class="main-layout">
+  <div class="provider-list">
+
+    <!-- Provider 1: Jennifer Mitchell -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">JM</div>
+        <div class="provider-name">Jennifer Mitchell</div>
+        <div class="provider-creds">LCSW</div>
+        <span class="provider-type-tag">Therapist</span>
+        <div class="provider-license">Licensed Clinical Social Worker</div>
+        <div class="provider-state">New York</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Depression</span>
+          <span class="concern-tag">Life transitions</span>
+          <span class="concern-tag">Self-esteem</span>
+          <span class="concern-tag">Relationship issues</span>
+        </div>
+        <div class="provider-bio">I specialize in helping adults who feel overwhelmed by anxiety, whether it shows up as racing thoughts, physical tension, or difficulty making decisions. My approach combines cognitive behavioral therapy and mindfulness-based strategies to help you develop practical tools for managing anxiety symptoms and building resilience.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I use an integrative approach drawing from CBT, DBT, and acceptance and commitment therapy (ACT). Sessions typically begin with identifying the thought patterns that fuel anxiety and developing personalized coping strategies. I believe the therapeutic relationship is foundational to progress.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">In our first session, I will ask about your history with anxiety, your current stressors, and what goals you hope to achieve. This session is also an opportunity for you to see if we are a good fit. There is no pressure to share more than you are comfortable with.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Jennifer</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 12 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Aetna, Cigna, Optum</div>
+      </div>
+    </div>
+
+    <!-- Provider 2: Robert Alvarez -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">RA</div>
+        <div class="provider-name">Robert Alvarez</div>
+        <div class="provider-creds">PsyD</div>
+        <span class="provider-type-tag">Psychologist</span>
+        <div class="provider-license">Licensed Psychologist</div>
+        <div class="provider-state">New York</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">OCD</span>
+          <span class="concern-tag">Panic disorder</span>
+          <span class="concern-tag">Phobias</span>
+          <span class="concern-tag">PTSD</span>
+        </div>
+        <div class="provider-bio">As a psychologist with over 15 years of experience, I focus on anxiety disorders including generalized anxiety, panic disorder, and obsessive-compulsive disorder. I use evidence-based approaches and tailor treatment plans to each individual. My practice draws on exposure and response prevention (ERP) techniques alongside traditional talk therapy.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I primarily use CBT and ERP for anxiety-related conditions. Treatment is collaborative, structured, and goal-oriented. For clients with OCD, I incorporate graduated exposure exercises that we develop together at a pace that feels manageable.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">We will begin with a thorough assessment of your anxiety symptoms, triggers, and how they impact daily life. I will explain my approach and together we will outline initial goals for treatment.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Robert</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 15 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">UnitedHealthcare, Cigna, Blue Cross</div>
+      </div>
+    </div>
+
+    <!-- Provider 3: Samantha Kim -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">SK</div>
+        <div class="provider-name">Samantha Kim</div>
+        <div class="provider-creds">LMHC</div>
+        <span class="provider-type-tag">Therapist</span>
+        <div class="provider-license">Licensed Mental Health Counselor</div>
+        <div class="provider-state">New York</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Social anxiety</span>
+          <span class="concern-tag">Stress management</span>
+          <span class="concern-tag">Burnout</span>
+          <span class="concern-tag">Career concerns</span>
+        </div>
+        <div class="provider-bio">I work with young professionals in New York who experience anxiety related to career pressures, social situations, and the demands of city living. My approach is warm, direct, and focused on building skills you can use in real-world situations. I draw from CBT, solution-focused therapy, and mindfulness practices.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">My sessions are structured but flexible. I focus on helping you understand your anxiety patterns and develop strategies that fit your lifestyle. Between sessions, I may suggest journaling or behavioral experiments to reinforce what we work on together.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">The first session is about getting to know each other. I will ask about your background, what brought you to therapy, and what you hope to gain. I will share how I work and we can decide together if this feels like the right fit.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Samantha</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 7 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Aetna, Optum, Anthem</div>
+      </div>
+    </div>
+
+    <!-- Provider 4: David Petrov (Psychiatrist) -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">DP</div>
+        <div class="provider-name">David Petrov</div>
+        <div class="provider-creds">MD</div>
+        <span class="provider-type-tag">Psychiatrist</span>
+        <div class="provider-license">Board-Certified Psychiatrist</div>
+        <div class="provider-state">New York</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Medication management</span>
+          <span class="concern-tag">Panic disorder</span>
+          <span class="concern-tag">Insomnia</span>
+          <span class="concern-tag">Depression</span>
+        </div>
+        <div class="provider-bio">I am a board-certified psychiatrist specializing in the assessment and medication management of anxiety disorders. I work with patients who may benefit from pharmacological support alongside therapy, and I collaborate with therapists to provide coordinated care. My goal is to find the right balance of treatment with the fewest side effects.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I conduct a comprehensive psychiatric evaluation and, if appropriate, discuss medication options, their benefits, and potential side effects. I believe in shared decision-making and will always explain why I recommend a specific treatment plan.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">Our initial visit is a full diagnostic assessment lasting approximately 45 minutes. I will review your medical history, current symptoms, and any previous treatments. If medication is appropriate, we will discuss options and begin with the lowest effective dose.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about David</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 18 years<br>
+          <strong>Mode:</strong> Video<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Blue Cross, UnitedHealthcare, Cigna</div>
+      </div>
+    </div>
+
+    <!-- Provider 5: Lauren Torres -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">LT</div>
+        <div class="provider-name">Lauren Torres</div>
+        <div class="provider-creds">LCSW</div>
+        <span class="provider-type-tag">Therapist</span>
+        <div class="provider-license">Licensed Clinical Social Worker</div>
+        <div class="provider-state">New York</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Grief</span>
+          <span class="concern-tag">Trauma</span>
+          <span class="concern-tag">Women's issues</span>
+          <span class="concern-tag">Family conflict</span>
+        </div>
+        <div class="provider-bio">I help adults navigate anxiety, especially when it intersects with grief, trauma, or major life changes. My practice is grounded in EMDR and psychodynamic theory, and I create a safe, nonjudgmental space where clients can explore the roots of their anxiety and develop healthier ways of responding to stress.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I integrate EMDR with psychodynamic and attachment-based approaches. For clients with trauma histories, I pace treatment carefully. We work together to process difficult experiences while building emotional regulation skills.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">I start by listening to your story. I want to understand not just your symptoms but the context of your life. We will talk about your goals and I will explain how I work so you can make an informed decision about continuing.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Lauren</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 10 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Optum, Anthem, Aetna</div>
+      </div>
+    </div>
+
+    <!-- Provider 6: Marcus Chen (Waitlist) -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">MC</div>
+        <div class="provider-name">Marcus Chen</div>
+        <div class="provider-creds">PhD</div>
+        <span class="provider-type-tag">Psychologist</span>
+        <div class="provider-license">Licensed Psychologist</div>
+        <div class="provider-state">New York</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Health anxiety</span>
+          <span class="concern-tag">Perfectionism</span>
+          <span class="concern-tag">Academic stress</span>
+          <span class="concern-tag">Identity</span>
+        </div>
+        <div class="provider-bio">My clinical focus is on anxiety rooted in perfectionism, health concerns, and academic or professional pressure. I use acceptance and commitment therapy (ACT) and cognitive behavioral methods to help clients build psychological flexibility and stop the cycle of worry. I have extensive experience working with graduate students and early-career professionals.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I use ACT as my primary framework, helping clients relate differently to anxious thoughts rather than trying to eliminate them. Sessions include experiential exercises, values clarification, and committed action planning.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">We will discuss what brings you to therapy and I will introduce the ACT model. I typically ask clients to complete a brief self-assessment before our first session so we can use our time efficiently.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Marcus</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 9 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot waitlist"></span>
+          <span class="accepting-text no">Waitlist only</span>
+        </div>
+        <button class="btn-primary">Join waitlist</button>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Cigna, Blue Cross, Optum</div>
+      </div>
+    </div>
+
+    <div class="pagination">Showing 6 of 42 providers &mdash; <a href="#">Next page</a></div>
+  </div>
+
+  <!-- Sidebar NY -->
+  <div class="sidebar">
+    <div class="sidebar-card" style="background:var(--brand);color:#fff;border:none;">
+      <h3 style="color:#fff;">Let us do the matching</h3>
+      <p style="color:#dde;">Take a short assessment and we will match you with a therapist who fits your needs and preferences.</p>
+      <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="background:#fff;color:var(--brand);text-decoration:none;display:inline-block;text-align:center;">Get matched</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>Results summary</h3>
+      <p>42 anxiety therapists available in New York. Most accept major insurance plans and offer video and messaging sessions.</p>
+    </div>
+    <div class="sidebar-card">
+      <h3>Insurance plans accepted</h3>
+      <div class="sidebar-pills">
+        <span class="sidebar-pill">Aetna</span>
+        <span class="sidebar-pill">Cigna</span>
+        <span class="sidebar-pill">Optum</span>
+        <span class="sidebar-pill">UnitedHealthcare</span>
+        <span class="sidebar-pill">Blue Cross</span>
+        <span class="sidebar-pill">Anthem</span>
+        <span class="sidebar-pill">Humana</span>
+        <span class="sidebar-pill">Oxford</span>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <h3>Not sure where to start?</h3>
+      <p>Take our free anxiety self-check to better understand your symptoms.</p>
+      <a href="https://www.talkspace.com/assessments/anxiety-test" class="sidebar-link">Take the self-check &rarr;</a>
+    </div>
+    <div class="crisis-strip">
+      <strong>Need immediate help?</strong>
+      Call 988 (Suicide &amp; Crisis Lifeline) or text HOME to 741741. In NYC, you can also contact NYC Well at 1-888-NYC-WELL (1-888-692-9355) for free, confidential support 24/7.
+    </div>
+  </div>
+</div>
+
+<!-- Content Sections NY -->
+<div class="content-sections">
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>What is anxiety?</h2>
+        <p>Understanding the condition and its prevalence.</p>
+      </div>
+      <div class="split-right">
+        <p>Anxiety is a normal response to stress, but when feelings of worry, fear, or unease become persistent and interfere with daily life, they may indicate an anxiety disorder. According to the National Institute of Mental Health (NIMH), an estimated 19.1% of U.S. adults had an anxiety disorder in the past year, and 31.1% of adults experience an anxiety disorder at some point in their lives.</p>
+        <p>In New York City, the fast pace of life, high cost of living, and densely populated environment can contribute to elevated stress and anxiety levels. The NYC Department of Health and Mental Hygiene reports that approximately 18% of adult New Yorkers report anxiety symptoms.</p>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>Talkspace anxiety services in New York</h2>
+        <p>Based on the providers listed for this location.</p>
+      </div>
+      <div class="split-right">
+        <p>Every provider listed for New York is licensed in New York, and all care is online, so you can meet from anywhere in New York where you have privacy.</p>
+        <div class="stat-columns">
+          <div>
+            <h4>Care you can get</h4>
+            <ul>
+              <li>42 providers offering individual therapy</li>
+              <li>12 providers offering couples therapy</li>
+              <li>8 providers offering psychiatry and medication management</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Who they see</h4>
+            <ul>
+              <li>6 providers seeing teens (13-17)</li>
+              <li>42 providers seeing adults (18-64)</li>
+              <li>18 providers seeing seniors (65+)</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Plans accepted</h4>
+            <ul>
+              <li>Aetna, Anthem, Carelon, Cigna, Optum, TRICARE, Blue Cross Blue Shield, and Medicare</li>
+              <li>Most insured members pay a $0 copay.*</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>How Talkspace can help with anxiety in New York</h2>
+        <p>What care looks like once you are matched.</p>
+      </div>
+      <div class="split-right">
+        <p>CBT and mindfulness-based approaches are common, and medication management can help when anxiety affects sleep and daily functioning.</p>
+        <ul class="help-bullets">
+          <li><strong>Make space to talk</strong> about what triggers your anxiety and how it affects your life, at your own pace.</li>
+          <li><strong>Quick matching.</strong> A licensed therapist within 2 days, or a psychiatric provider within about a week if you want to discuss medication.</li>
+          <li><strong>Flexible care.</strong> Live video sessions you schedule, plus messaging if it is in your plan.</li>
+          <li><strong>Regular check-ins.</strong> Your provider reviews progress with you and adjusts the plan as you go.</li>
+        </ul>
+        <div class="browse-approaches">
+          <h4>Browse providers by approach</h4>
+          <span>CBT</span><span>Mindfulness-based</span><span>Psychodynamic</span><span>DBT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>Anxiety symptoms and precautions</h2>
+        <p>Signs to look for, and when to get urgent help.</p>
+      </div>
+      <div class="split-right">
+        <div class="stat-columns" style="grid-template-columns: 1fr 1fr;">
+          <div>
+            <h4>Common symptoms</h4>
+            <ul>
+              <li>Persistent worry or dread</li>
+              <li>Restlessness or feeling on edge</li>
+              <li>Difficulty concentrating</li>
+              <li>Sleep disturbances</li>
+              <li>Muscle tension or headaches</li>
+              <li>Rapid heartbeat or shortness of breath</li>
+              <li>Avoiding situations that trigger fear</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Precautions</h4>
+            <ul>
+              <li>If anxiety stays intense and keeps you from daily life for many months, support can help.</li>
+              <li>If you have thoughts of suicide, call or text 988.</li>
+              <li>Anxiety interferes with work or school</li>
+              <li>Relationships are affected by worry</li>
+              <li>Physical symptoms persist without medical cause</li>
+              <li>You use substances to manage symptoms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>Crisis resources in New York</h2>
+      </div>
+      <div class="split-right">
+        <p><strong>988 Suicide &amp; Crisis Lifeline:</strong> Call or text 988, available 24/7 nationwide.</p>
+        <p><strong>NYC Well:</strong> Call 1-888-NYC-WELL (1-888-692-9355), text WELL to 65173, or chat at nyc.gov/nycwell. Free, confidential support for New York City residents in over 200 languages.</p>
+        <p><strong>Crisis Text Line:</strong> Text HOME to 741741 for free crisis support via text message.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- How It Works NY -->
+<div class="how-it-works">
+  <h2>How Talkspace works</h2>
+  <p class="subtitle">Start online anxiety therapy in New York in four simple steps.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Take a brief assessment</h3>
+      <p>Answer a few questions about your anxiety symptoms and therapy preferences so we can match you with the right provider.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Get matched</h3>
+      <p>We match you with a licensed therapist in New York who specializes in anxiety and fits your needs.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Start therapy</h3>
+      <p>Connect with your therapist through messaging, video, or audio sessions from anywhere in New York.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <h3>Track your progress</h3>
+      <p>Monitor your mental health journey with regular check-ins and adjust your treatment plan as needed.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials NY -->
+<div class="testimonials">
+  <h2>What our members say about anxiety therapy</h2>
+  <p style="font-size:12px;color:var(--fg-muted);margin-bottom:24px;font-style:italic;">[Placeholder: Replace with verified member testimonials from Talkspace before publishing]</p>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"Having someone help me sort through the emotions, anxiety, hurt, and everyday life has made a real impact."</blockquote>
+      <div class="testimonial-author">Talkspace member</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <blockquote>"The talk therapy has been very useful. The flexibility of video chat allows a chaotic life to carry on while still getting the support I need."</blockquote>
+      <div class="testimonial-author">Talkspace member</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"I love using Talkspace for therapy. The convenience of being able to connect with my therapist on my schedule changed everything for me."</blockquote>
+      <div class="testimonial-author">Talkspace member</div>
+    </div>
+  </div>
+</div>
+
+<!-- Insurance Info NY -->
+<div class="insurance-info">
+  <h2>Insurance and pricing for anxiety therapy</h2>
+  <p class="subtitle">Talkspace accepts most major insurance plans. The average insured copay is $10 per session, and many members pay $0.</p>
+  <div class="insurance-grid">
+    <div class="insurance-card">
+      <h3>Messaging therapy</h3>
+      <div class="price">$69</div>
+      <div class="price-note">per week</div>
+      <ul>
+        <li>Unlimited messaging (text, video, audio)</li>
+        <li>Therapist responds 5 days a week</li>
+        <li>Switch therapists anytime</li>
+        <li>10-20% off with quarterly or biannual billing</li>
+      </ul>
+    </div>
+    <div class="insurance-card">
+      <h3>Live session plan</h3>
+      <div class="price">$99</div>
+      <div class="price-note">per week</div>
+      <ul>
+        <li>Everything in messaging therapy</li>
+        <li>4 live 30-minute sessions per month</li>
+        <li>Extra live sessions available at $65 each</li>
+        <li>Video, audio, or chat sessions</li>
+      </ul>
+    </div>
+    <div class="insurance-card">
+      <h3>Premium plan</h3>
+      <div class="price">$109</div>
+      <div class="price-note">per week</div>
+      <ul>
+        <li>Everything in live session plan</li>
+        <li>Therapist-led workshops included</li>
+        <li>Cancel anytime</li>
+        <li>Most comprehensive option</li>
+      </ul>
+    </div>
+  </div>
+  <div class="insurance-logos">
+    <span>Aetna</span><span>Anthem</span><span>Blue Cross Blue Shield</span><span>Carelon</span><span>Cigna</span><span>Optum</span><span>Regence</span><span>TRICARE</span><span>UMR</span><span>Medicare</span>
+  </div>
+</div>
+
+<!-- Related Articles NY -->
+<div class="related-articles">
+  <h2>Learn more about anxiety</h2>
+  <div class="articles-grid">
+    <div class="article-card">
+      <div class="article-img">&#128218;</div>
+      <div class="article-body">
+        <div class="article-tag">Anxiety</div>
+        <h3><a href="https://www.talkspace.com/blog/how-to-cope-with-exam-anxiety">How to manage exam anxiety: evidence-based coping strategies for students</a></h3>
+        <p>Evidence-based strategies to help students recognize and manage exam-related anxiety before, during, and after tests.</p>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-img">&#128161;</div>
+      <div class="article-body">
+        <div class="article-tag">Anxiety</div>
+        <h3><a href="https://www.talkspace.com/blog/hypervigilance-symptoms-calming-strategies">Hypervigilance: signs and how to calm anxiety</a></h3>
+        <p>Learn to recognize the signs of hypervigilance and discover therapist-recommended strategies for calming heightened anxiety responses.</p>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-img">&#128736;</div>
+      <div class="article-body">
+        <div class="article-tag">Anxiety</div>
+        <h3><a href="https://www.talkspace.com/blog/anxiety-at-work">How to deal with anxiety at work</a></h3>
+        <p>Practical advice for managing workplace anxiety, from identifying triggers to building coping strategies that work during the workday.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs NY -->
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How do I find an anxiety therapist in New York through Talkspace?</button>
+    <div class="faq-a">Start by completing our brief assessment. Based on your responses, we will match you with a licensed therapist in New York who specializes in anxiety. You can review their profile, read about their approach, and start therapy through video sessions or messaging.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Does Talkspace accept insurance for anxiety therapy in New York?</button>
+    <div class="faq-a">Yes. Talkspace accepts many major insurance plans in New York, including Aetna, Cigna, Optum, UnitedHealthcare, Blue Cross Blue Shield, and others. You can check your coverage during the sign-up process.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What types of therapy are available for anxiety on Talkspace?</button>
+    <div class="faq-a">Our therapists offer several evidence-based approaches for anxiety, including cognitive behavioral therapy (CBT), acceptance and commitment therapy (ACT), exposure and response prevention (ERP), EMDR, and mindfulness-based therapies. Your therapist will recommend the approach best suited to your needs.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can I get medication for anxiety through Talkspace in New York?</button>
+    <div class="faq-a">Yes. Talkspace offers psychiatric services in New York. A board-certified psychiatrist can evaluate your symptoms and prescribe medication if appropriate. Psychiatry sessions are conducted via video.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How much does anxiety therapy cost in New York without insurance?</button>
+    <div class="faq-a">Without insurance, Talkspace therapy plans start at competitive rates that are typically lower than in-person therapy in New York City, where average session costs can range from $150 to $300 or more. Visit our pricing page for current plan options.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Are Talkspace therapists licensed in New York State?</button>
+    <div class="faq-a">Yes. All Talkspace therapists are fully licensed mental health professionals. Therapists listed on the New York directory hold active licenses issued by the New York State Education Department, which regulates LCSWs, LMHCs, psychologists, and psychiatrists.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can I switch therapists if the match is not right?</button>
+    <div class="faq-a">Absolutely. Finding the right therapist is important. If you feel the initial match is not the right fit, you can request a new therapist at any time through your Talkspace account at no extra cost.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is online therapy effective for anxiety?</button>
+    <div class="faq-a">Research supports the effectiveness of online therapy for anxiety disorders. A 2020 study published in the Journal of Anxiety Disorders found that internet-delivered CBT produced outcomes comparable to face-to-face therapy for generalized anxiety disorder and social anxiety.</div>
+  </div>
+</div>
+
+<!-- CTA NY -->
+<div class="cta-section">
+  <h2>Ready to get started?</h2>
+  <p>Begin your journey toward managing anxiety with a licensed therapist.</p>
+  <div class="cta-steps">
+    <div class="cta-step"><div class="num">1</div><div class="label">Complete assessment</div></div>
+    <div class="cta-step"><div class="num">2</div><div class="label">Get matched</div></div>
+    <div class="cta-step"><div class="num">3</div><div class="label">Start therapy</div></div>
+  </div>
+  <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="max-width:280px;margin:0 auto;display:block;text-decoration:none;color:#fff;text-align:center;">Get started today</a>
+</div>
+
+<!-- Explore NY -->
+<div class="explore-section">
+  <h2>Explore more therapists</h2>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(this,'ny-explore')">By concern</button>
+    <button class="tab-btn" onclick="switchTab(this,'ny-explore')">By insurance</button>
+    <button class="tab-btn" onclick="switchTab(this,'ny-explore')">By therapy type</button>
+    <button class="tab-btn" onclick="switchTab(this,'ny-explore')">By age group</button>
+  </div>
+  <div class="tab-panel active" data-group="ny-explore">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/therapists/ny/depression">Depression therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/ptsd">PTSD therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/ocd">OCD therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/adhd">ADHD therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/couples">Couples therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/grief">Grief therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/trauma">Trauma therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/teens">Teen therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/eating-disorders">Eating disorder therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/bipolar">Bipolar disorder therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/anger-management">Anger management therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/stress">Stress therapists in NY</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+  <div class="tab-panel" data-group="ny-explore">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/coverage/insurance/aetna">Aetna therapists in NY</a>
+      <a href="https://www.talkspace.com/coverage/insurance/cigna">Cigna therapists in NY</a>
+      <a href="https://www.talkspace.com/coverage/insurance/optum">UnitedHealthcare therapists in NY</a>
+      <a href="https://www.talkspace.com/coverage/insurance/blue-cross-blue-shield">Blue Cross therapists in NY</a>
+      <a href="https://www.talkspace.com/coverage/insurance/optum">Optum therapists in NY</a>
+      <a href="https://www.talkspace.com/coverage/insurance/anthem">Anthem therapists in NY</a>
+      <a href="https://www.talkspace.com/coverage/insurance">Oxford therapists in NY</a>
+      <a href="https://www.talkspace.com/coverage/insurance">Humana therapists in NY</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+  <div class="tab-panel" data-group="ny-explore">
+    <div class="link-grid">
+      <a href="https://www.talkspace.com/therapists/ny/cbt">CBT therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/dbt">DBT therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/emdr">EMDR therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/psychodynamic">Psychodynamic therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/act">ACT therapists in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny/mindfulness">Mindfulness therapists in NY</a>
+    </div>
+  </div>
+  <div class="tab-panel" data-group="ny-explore">
+    <div class="link-grid">
+      <a href="https://www.talkspace.com/therapists/ny/teens">Teen therapists (13-17) in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny">Young adult therapists (18-25) in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny">Adult therapists (26-64) in NY</a>
+      <a href="https://www.talkspace.com/therapists/ny">Senior therapists (65+) in NY</a>
+    </div>
+  </div>
+</div>
+
+<!-- Find in Other Places -->
+<div class="explore-section">
+  <h2>Find anxiety therapists in other places</h2>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(this,'ny-places')">Popular cities</button>
+    <button class="tab-btn" onclick="switchTab(this,'ny-places')">States</button>
+  </div>
+  <div class="tab-panel active" data-group="ny-places">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/therapists/ca">Los Angeles, CA</a>
+      <a href="https://www.talkspace.com/therapists/il">Chicago, IL</a>
+      <a href="https://www.talkspace.com/therapists/tx">Houston, TX</a>
+      <a href="https://www.talkspace.com/therapists/az">Phoenix, AZ</a>
+      <a href="https://www.talkspace.com/therapists/pa">Philadelphia, PA</a>
+      <a href="https://www.talkspace.com/therapists/tx">San Antonio, TX</a>
+      <a href="https://www.talkspace.com/therapists/ca">San Diego, CA</a>
+      <a href="https://www.talkspace.com/therapists/tx">Dallas, TX</a>
+      <a href="https://www.talkspace.com/therapists/tx">Austin, TX</a>
+      <a href="https://www.talkspace.com/therapists/ca">San Francisco, CA</a>
+      <a href="https://www.talkspace.com/therapists/fl">Miami, FL</a>
+      <a href="https://www.talkspace.com/therapists/co">Denver, CO</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+  <div class="tab-panel" data-group="ny-places">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/therapists/ca">California</a>
+      <a href="https://www.talkspace.com/therapists/tx">Texas</a>
+      <a href="https://www.talkspace.com/therapists/fl">Florida</a>
+      <a href="https://www.talkspace.com/therapists/il">Illinois</a>
+      <a href="https://www.talkspace.com/therapists/pa">Pennsylvania</a>
+      <a href="https://www.talkspace.com/therapists/oh">Ohio</a>
+      <a href="https://www.talkspace.com/therapists/ga">Georgia</a>
+      <a href="https://www.talkspace.com/therapists/nc">North Carolina</a>
+      <a href="https://www.talkspace.com/therapists/mi">Michigan</a>
+      <a href="https://www.talkspace.com/therapists/nj">New Jersey</a>
+      <a href="https://www.talkspace.com/therapists/va">Virginia</a>
+      <a href="https://www.talkspace.com/therapists/wa">Washington</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+</div>
+
+</div><!-- end city-ny -->
+
+<!-- ============ LOS ANGELES ============ -->
+<div id="city-la" class="city-content">
+
+<div class="breadcrumb"><a href="https://www.talkspace.com">Home</a> &rsaquo; <a href="https://www.talkspace.com/therapists">Find a therapist</a> &rsaquo; <a href="https://www.talkspace.com/therapists/ca">California</a> &rsaquo; <a href="https://www.talkspace.com/therapists/ca">Los Angeles</a> &rsaquo; Anxiety</div>
+
+<div class="hero">
+  <h1>Anxiety therapists in Los Angeles, CA</h1>
+  <p>Find a licensed anxiety therapist in Los Angeles. According to KFF and SAMHSA data, approximately 21% of adults in California report symptoms of anxiety. Our providers are licensed in California and available for online therapy.</p>
+</div>
+
+<div class="filter-bar">
+  <select>
+    <option selected>Concern: Anxiety</option>
+  </select>
+  <select>
+    <option selected>Insurance</option>
+  </select>
+  <select>
+    <option selected>Provider type</option>
+    <option>Therapist (LCSW)</option>
+    <option>Therapist (LMFT)</option>
+    <option>Psychologist (PsyD / PhD)</option>
+    <option>Psychiatrist (MD)</option>
+  </select>
+  <select>
+    <option selected>Age group</option>
+    <option>Teens (13-17)</option>
+    <option>Adults (18-64)</option>
+    <option>Seniors (65+)</option>
+  </select>
+  <select>
+    <option selected>Service type</option>
+    <option>Individual therapy</option>
+    <option>Couples therapy</option>
+    <option>Psychiatry</option>
+    <option>Teen therapy</option>
+  </select>
+</div>
+
+<div class="main-layout">
+  <div class="provider-list">
+
+    <!-- LA Provider 1: Nicole Reyes -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">NR</div>
+        <div class="provider-name">Nicole Reyes</div>
+        <div class="provider-creds">LMFT</div>
+        <span class="provider-type-tag">Therapist</span>
+        <div class="provider-license">Licensed Marriage &amp; Family Therapist</div>
+        <div class="provider-state">California</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Relationship issues</span>
+          <span class="concern-tag">Self-esteem</span>
+          <span class="concern-tag">Life transitions</span>
+          <span class="concern-tag">Cultural identity</span>
+        </div>
+        <div class="provider-bio">I am a bilingual (English/Spanish) therapist who specializes in anxiety and its impact on relationships and self-worth. Growing up in a bicultural household, I understand the unique pressures that can come from navigating different cultural expectations. My approach is warm, collaborative, and rooted in humanistic and CBT principles.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I combine humanistic therapy with CBT techniques. I focus on the relationship between your thoughts, feelings, and behaviors, while honoring your cultural context and personal values. Sessions are available in English or Spanish.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">In our first meeting, I will ask about your background, relationships, and what has been weighing on you. I want to understand your experience in your own words. We will set initial goals together and discuss what you can expect from therapy.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Nicole</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 8 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Aetna, Optum, Cigna</div>
+      </div>
+    </div>
+
+    <!-- LA Provider 2: James Washington -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">JW</div>
+        <div class="provider-name">James Washington</div>
+        <div class="provider-creds">LCSW</div>
+        <span class="provider-type-tag">Therapist</span>
+        <div class="provider-license">Licensed Clinical Social Worker</div>
+        <div class="provider-state">California</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Depression</span>
+          <span class="concern-tag">Racial stress</span>
+          <span class="concern-tag">Work-life balance</span>
+          <span class="concern-tag">Men's issues</span>
+        </div>
+        <div class="provider-bio">I work primarily with adults who are dealing with anxiety, depression, and the stress that comes with navigating professional and personal demands. I have a particular interest in helping men who find it difficult to talk about their mental health. I use a direct, no-nonsense approach grounded in CBT and solution-focused therapy.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">My style is active and collaborative. I use CBT to address thought patterns that fuel anxiety and solution-focused techniques to build practical coping strategies. I believe therapy should be goal-oriented and that progress should be measurable.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">Our first session is a chance to get on the same page. I will ask about your current challenges, what has worked or not worked in the past, and what you want to get out of therapy. I keep things straightforward and practical from the start.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about James</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 11 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Blue Shield of CA, Cigna, UnitedHealthcare</div>
+      </div>
+    </div>
+
+    <!-- LA Provider 3: Anita Patel -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">AP</div>
+        <div class="provider-name">Anita Patel</div>
+        <div class="provider-creds">PsyD</div>
+        <span class="provider-type-tag">Psychologist</span>
+        <div class="provider-license">Licensed Psychologist</div>
+        <div class="provider-state">California</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Perfectionism</span>
+          <span class="concern-tag">Impostor syndrome</span>
+          <span class="concern-tag">Burnout</span>
+          <span class="concern-tag">Academic stress</span>
+        </div>
+        <div class="provider-bio">I specialize in anxiety driven by perfectionism and high expectations. Many of my clients are high-achieving professionals or students in the entertainment, tech, or academic sectors who feel stuck in a cycle of overwork and self-doubt. I use CBT and ACT to help clients develop a healthier relationship with achievement and uncertainty.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I take a structured, evidence-based approach using CBT and ACT. My focus is on helping you identify unhelpful thinking patterns, build tolerance for uncertainty, and align your behavior with your values rather than your fears.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">In our first session, we will map out your anxiety triggers and how they connect to your daily life. I will introduce the treatment framework and we will set clear, measurable goals to work toward.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Anita</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 13 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Aetna, Anthem Blue Cross, Optum</div>
+      </div>
+    </div>
+
+    <!-- LA Provider 4: Elena Garcia (Psychiatrist) -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">EG</div>
+        <div class="provider-name">Elena Garcia</div>
+        <div class="provider-creds">MD</div>
+        <span class="provider-type-tag">Psychiatrist</span>
+        <div class="provider-license">Board-Certified Psychiatrist</div>
+        <div class="provider-state">California</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Medication management</span>
+          <span class="concern-tag">Depression</span>
+          <span class="concern-tag">Insomnia</span>
+          <span class="concern-tag">ADHD</span>
+        </div>
+        <div class="provider-bio">I am a board-certified psychiatrist with a focus on anxiety disorders, mood disorders, and ADHD. I provide comprehensive psychiatric evaluations and medication management, and I coordinate care with therapists to support a whole-person treatment approach. I am bilingual in English and Spanish.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I begin with a thorough evaluation of symptoms, medical history, and previous treatments. If medication is appropriate, I explain the rationale, expected timeline, and potential side effects. I check in regularly and adjust treatment as needed.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">The initial evaluation is approximately 45 minutes. I will review your full medical and psychiatric history, discuss your current symptoms, and if medication is appropriate, outline a treatment plan. Follow-up visits are typically 15 to 20 minutes.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Elena</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 16 years<br>
+          <strong>Mode:</strong> Video<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Anthem Blue Cross, Blue Shield of CA, Cigna</div>
+      </div>
+    </div>
+
+    <!-- LA Provider 5: Tara Okonkwo -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">TO</div>
+        <div class="provider-name">Tara Okonkwo</div>
+        <div class="provider-creds">LMFT</div>
+        <span class="provider-type-tag">Therapist</span>
+        <div class="provider-license">Licensed Marriage &amp; Family Therapist</div>
+        <div class="provider-state">California</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Family conflict</span>
+          <span class="concern-tag">Trauma</span>
+          <span class="concern-tag">Women's issues</span>
+          <span class="concern-tag">Perinatal anxiety</span>
+        </div>
+        <div class="provider-bio">I work with women and families experiencing anxiety, particularly around major life transitions such as pregnancy, postpartum, career changes, and parenting. My approach integrates attachment theory, somatic experiencing, and CBT to address both the emotional and physical dimensions of anxiety.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I use a body-centered approach alongside CBT. Many clients with anxiety hold tension in their bodies, and I help them develop awareness of this connection. Sessions often include grounding exercises and breathwork alongside traditional talk therapy.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">I will ask about your current concerns, your family history, and what you hope to gain from therapy. If relevant, I will ask about your experience with pregnancy or parenting. The first session is about building a sense of safety and trust.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Tara</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 9 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot accepting"></span>
+          <span class="accepting-text yes">Accepting new clients</span>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="text-decoration:none;color:#fff;display:inline-block;text-align:center;">Check availability</a>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Optum, Aetna, Anthem Blue Cross</div>
+      </div>
+    </div>
+
+    <!-- LA Provider 6: Brian Levine (Waitlist) -->
+    <div class="provider-card">
+      <div class="provider-identity">
+        <div class="provider-avatar">BL</div>
+        <div class="provider-name">Brian Levine</div>
+        <div class="provider-creds">LPCC</div>
+        <span class="provider-type-tag">Therapist</span>
+        <div class="provider-license">Licensed Professional Clinical Counselor</div>
+        <div class="provider-state">California</div>
+      </div>
+      <div class="provider-details">
+        <div class="concern-tags">
+          <span class="concern-tag highlighted">Anxiety</span>
+          <span class="concern-tag">Performance anxiety</span>
+          <span class="concern-tag">Creative blocks</span>
+          <span class="concern-tag">Industry stress</span>
+          <span class="concern-tag">Substance use</span>
+        </div>
+        <div class="provider-bio">I specialize in working with individuals in the entertainment and creative industries who experience anxiety, performance pressure, and the uncertainty that comes with project-based careers. I understand the unique demands of this industry and offer a nonjudgmental, practical approach using CBT and motivational interviewing.</div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">How I work <span>&#9660;</span></button>
+          <div class="expand-content">I use CBT and motivational interviewing to help clients manage performance anxiety and build resilience. My approach is practical and goal-focused. I also work with clients who use substances to cope with anxiety and want to explore healthier alternatives.</div>
+        </div>
+        <div class="expand-section">
+          <button class="expand-toggle" onclick="toggleExpand(this)">Your first session <span>&#9660;</span></button>
+          <div class="expand-content">We will start with a conversation about what brought you to therapy and what your day-to-day looks like. I will explain my approach and we will identify the areas where you want to see change. I keep things practical and focused from the beginning.</div>
+        </div>
+        <a href="https://match.talkspace.com/dispatcher" class="read-more">Read more about Brian</a>
+      </div>
+      <div class="provider-actions">
+        <div class="provider-meta">
+          <strong>Experience:</strong> 6 years<br>
+          <strong>Mode:</strong> Video, messaging<br>
+          <strong>Phone:</strong> Available on request<br>
+          <strong>Email:</strong> Via Talkspace
+        </div>
+        <div>
+          <span class="status-dot waitlist"></span>
+          <span class="accepting-text no">Waitlist only</span>
+        </div>
+        <button class="btn-primary">Join waitlist</button>
+        <button class="btn-secondary">View profile</button>
+        <div class="insurance-line">Cigna, Blue Shield of CA, Optum</div>
+      </div>
+    </div>
+
+    <div class="pagination">Showing 6 of 38 providers &mdash; <a href="#">Next page</a></div>
+  </div>
+
+  <!-- Sidebar LA -->
+  <div class="sidebar">
+    <div class="sidebar-card" style="background:var(--brand);color:#fff;border:none;">
+      <h3 style="color:#fff;">Let us do the matching</h3>
+      <p style="color:#dde;">Take a short assessment and we will match you with a licensed therapist in California who specializes in anxiety.</p>
+      <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="background:#fff;color:var(--brand);text-decoration:none;display:inline-block;text-align:center;">Get matched</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>Results summary</h3>
+      <p>38 anxiety therapists available in Los Angeles. Most accept major California insurance plans and offer video and messaging sessions.</p>
+    </div>
+    <div class="sidebar-card">
+      <h3>Insurance plans accepted</h3>
+      <div class="sidebar-pills">
+        <span class="sidebar-pill">Aetna</span>
+        <span class="sidebar-pill">Cigna</span>
+        <span class="sidebar-pill">Optum</span>
+        <span class="sidebar-pill">UnitedHealthcare</span>
+        <span class="sidebar-pill">Anthem Blue Cross</span>
+        <span class="sidebar-pill">Blue Shield of CA</span>
+        <span class="sidebar-pill">Kaiser</span>
+        <span class="sidebar-pill">Health Net</span>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <h3>Not sure where to start?</h3>
+      <p>Take our free anxiety self-check to better understand your symptoms.</p>
+      <a href="https://www.talkspace.com/assessments/anxiety-test" class="sidebar-link">Take the self-check &rarr;</a>
+    </div>
+    <div class="crisis-strip">
+      <strong>Need immediate help?</strong>
+      Call 988 (Suicide &amp; Crisis Lifeline) or text HOME to 741741. In Los Angeles County, contact the LACDMH ACCESS Hotline at 1-800-854-7771 for free, confidential mental health support 24/7.
+    </div>
+  </div>
+</div>
+
+<!-- Content Sections LA -->
+<div class="content-sections">
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>What is anxiety?</h2>
+        <p>Understanding the condition and its prevalence.</p>
+      </div>
+      <div class="split-right">
+        <p>Anxiety is a natural response to perceived threats, but when it becomes chronic or disproportionate, it can significantly impair quality of life. The National Institute of Mental Health (NIMH) estimates that 19.1% of U.S. adults experience an anxiety disorder in any given year, and 31.1% will experience one in their lifetime.</p>
+        <p>In Los Angeles, factors such as traffic congestion, the high cost of living, industry pressures in entertainment and tech, and earthquake preparedness concerns can contribute to elevated anxiety. KFF and SAMHSA data indicate that approximately 21% of adults in California report anxiety symptoms.</p>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>Talkspace anxiety services in Los Angeles</h2>
+        <p>Based on the providers listed for this location.</p>
+      </div>
+      <div class="split-right">
+        <p>Every provider listed for Los Angeles is licensed in California, and all care is online, so you can meet from anywhere in Los Angeles where you have privacy.</p>
+        <div class="stat-columns">
+          <div>
+            <h4>Care you can get</h4>
+            <ul>
+              <li>38 providers offering individual therapy</li>
+              <li>10 providers offering couples therapy</li>
+              <li>6 providers offering psychiatry and medication management</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Who they see</h4>
+            <ul>
+              <li>5 providers seeing teens (13-17)</li>
+              <li>38 providers seeing adults (18-64)</li>
+              <li>14 providers seeing seniors (65+)</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Plans accepted</h4>
+            <ul>
+              <li>Aetna, Anthem, Carelon, Cigna, Optum, TRICARE, Blue Cross Blue Shield, and Medicare</li>
+              <li>Most insured members pay a $0 copay.*</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>How Talkspace can help with anxiety in Los Angeles</h2>
+        <p>What care looks like once you are matched.</p>
+      </div>
+      <div class="split-right">
+        <p>CBT, mindfulness-based approaches, and bilingual therapy (English/Spanish) are common, and medication management can help when anxiety affects sleep and daily functioning.</p>
+        <ul class="help-bullets">
+          <li><strong>Make space to talk</strong> about what triggers your anxiety and how it affects your life, at your own pace.</li>
+          <li><strong>Quick matching.</strong> A licensed therapist within 2 days, or a psychiatric provider within about a week if you want to discuss medication.</li>
+          <li><strong>Flexible care.</strong> Live video sessions you schedule, plus messaging if it is in your plan. No commute through LA traffic required.</li>
+          <li><strong>Regular check-ins.</strong> Your provider reviews progress with you and adjusts the plan as you go.</li>
+        </ul>
+        <div class="browse-approaches">
+          <h4>Browse providers by approach</h4>
+          <span>CBT</span><span>Mindfulness-based</span><span>Psychodynamic</span><span>EMDR</span><span>Bilingual (En/Es)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>Anxiety symptoms and precautions</h2>
+        <p>Signs to look for, and when to get urgent help.</p>
+      </div>
+      <div class="split-right">
+        <div class="stat-columns" style="grid-template-columns: 1fr 1fr;">
+          <div>
+            <h4>Common symptoms</h4>
+            <ul>
+              <li>Persistent worry or dread</li>
+              <li>Restlessness or feeling on edge</li>
+              <li>Difficulty concentrating</li>
+              <li>Sleep disturbances</li>
+              <li>Muscle tension or headaches</li>
+              <li>Rapid heartbeat or shortness of breath</li>
+              <li>Avoiding situations that trigger fear</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Precautions</h4>
+            <ul>
+              <li>If anxiety stays intense and keeps you from daily life for many months, support can help.</li>
+              <li>If you have thoughts of suicide, call or text 988.</li>
+              <li>Anxiety interferes with work or school</li>
+              <li>Relationships are affected by worry</li>
+              <li>Physical symptoms persist without medical cause</li>
+              <li>You use substances to manage symptoms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-section">
+    <div class="split-section">
+      <div class="split-left">
+        <h2>Crisis resources in Los Angeles</h2>
+      </div>
+      <div class="split-right">
+        <p><strong>988 Suicide &amp; Crisis Lifeline:</strong> Call or text 988, available 24/7 nationwide.</p>
+        <p><strong>LACDMH ACCESS Hotline:</strong> Call 1-800-854-7771 for free mental health information, referrals, and crisis counseling in Los Angeles County. Available 24/7.</p>
+        <p><strong>Crisis Text Line:</strong> Text HOME to 741741 for free crisis support via text message.</p>
+        <p><strong>Didi Hirsch Mental Health Services:</strong> Call the Suicide Prevention Crisis Line at 1-877-727-4747, available 24/7 for LA residents.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- How It Works LA -->
+<div class="how-it-works">
+  <h2>How Talkspace works</h2>
+  <p class="subtitle">Start online anxiety therapy in Los Angeles in four simple steps.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Take a brief assessment</h3>
+      <p>Answer a few questions about your anxiety symptoms and therapy preferences so we can match you with the right provider.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Get matched</h3>
+      <p>We match you with a licensed therapist in California who specializes in anxiety and fits your needs.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Start therapy</h3>
+      <p>Connect with your therapist through messaging, video, or audio sessions from anywhere in Los Angeles.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <h3>Track your progress</h3>
+      <p>Monitor your mental health journey with regular check-ins and adjust your treatment plan as needed.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials LA -->
+<div class="testimonials">
+  <h2>What our members say about anxiety therapy</h2>
+  <p style="font-size:12px;color:var(--fg-muted);margin-bottom:24px;font-style:italic;">[Placeholder: Replace with verified member testimonials from Talkspace before publishing]</p>
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"I was hesitant about online therapy but my Talkspace therapist has been incredible. Being able to message anytime makes managing my anxiety so much easier."</blockquote>
+      <div class="testimonial-author">Talkspace member</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"The video sessions feel just as personal as in-office visits. My therapist helped me build coping strategies that actually fit into my daily routine."</blockquote>
+      <div class="testimonial-author">Talkspace member</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <blockquote>"Finding a therapist who understood social anxiety made all the difference. Messaging between sessions helps me stay consistent with my progress."</blockquote>
+      <div class="testimonial-author">Talkspace member</div>
+    </div>
+  </div>
+</div>
+
+<!-- Insurance Info LA -->
+<div class="insurance-info">
+  <h2>Insurance and pricing for anxiety therapy</h2>
+  <p class="subtitle">Talkspace accepts most major insurance plans in California. The average insured copay is $10 per session, and many members pay $0.</p>
+  <div class="insurance-grid">
+    <div class="insurance-card">
+      <h3>Messaging therapy</h3>
+      <div class="price">$69</div>
+      <div class="price-note">per week</div>
+      <ul>
+        <li>Unlimited messaging (text, video, audio)</li>
+        <li>Therapist responds 5 days a week</li>
+        <li>Switch therapists anytime</li>
+        <li>10-20% off with quarterly or biannual billing</li>
+      </ul>
+    </div>
+    <div class="insurance-card">
+      <h3>Live session plan</h3>
+      <div class="price">$99</div>
+      <div class="price-note">per week</div>
+      <ul>
+        <li>Everything in messaging therapy</li>
+        <li>4 live 30-minute sessions per month</li>
+        <li>Extra live sessions available at $65 each</li>
+        <li>Video, audio, or chat sessions</li>
+      </ul>
+    </div>
+    <div class="insurance-card">
+      <h3>Premium plan</h3>
+      <div class="price">$109</div>
+      <div class="price-note">per week</div>
+      <ul>
+        <li>Everything in live session plan</li>
+        <li>Therapist-led workshops included</li>
+        <li>Cancel anytime</li>
+        <li>Most comprehensive option</li>
+      </ul>
+    </div>
+  </div>
+  <div class="insurance-logos">
+    <span>Aetna</span><span>Anthem</span><span>Blue Cross Blue Shield</span><span>Carelon</span><span>Cigna</span><span>Optum</span><span>Regence</span><span>TRICARE</span><span>UMR</span><span>Medicare</span>
+  </div>
+</div>
+
+<!-- Related Articles LA -->
+<div class="related-articles">
+  <h2>Learn more about anxiety</h2>
+  <div class="articles-grid">
+    <div class="article-card">
+      <div class="article-img">&#128218;</div>
+      <div class="article-body">
+        <div class="article-tag">Anxiety</div>
+        <h3><a href="https://www.talkspace.com/blog/anxious-attachment-style">Anxious attachment style: signs, root causes, and how therapy can help</a></h3>
+        <p>Understand how anxious attachment develops, recognize the signs in your relationships, and learn how therapy can help you build secure connections.</p>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-img">&#128161;</div>
+      <div class="article-body">
+        <div class="article-tag">Anxiety</div>
+        <h3><a href="https://www.talkspace.com/blog/hypervigilance-symptoms-calming-strategies">Hypervigilance: signs and how to calm anxiety</a></h3>
+        <p>Learn to recognize the signs of hypervigilance and discover therapist-recommended strategies for calming heightened anxiety responses.</p>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-img">&#128736;</div>
+      <div class="article-body">
+        <div class="article-tag">Anxiety</div>
+        <h3><a href="https://www.talkspace.com/blog/deal-with-anxiety-relax-relaxing">Does relaxing make anxious people more anxious?</a></h3>
+        <p>Why relaxation techniques can sometimes backfire for people with anxiety, and what alternative approaches therapists recommend instead.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs LA -->
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How do I find an anxiety therapist in Los Angeles through Talkspace?</button>
+    <div class="faq-a">Complete our brief online assessment. We will match you with a licensed California therapist who specializes in anxiety and is available for online sessions. You can review their profile and approach before starting.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Does Talkspace accept insurance for anxiety therapy in California?</button>
+    <div class="faq-a">Yes. Talkspace works with many major insurance plans available in California, including Aetna, Cigna, Optum, Anthem Blue Cross, Blue Shield of California, and others. You can verify your coverage during sign-up.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Are there bilingual anxiety therapists available in Los Angeles?</button>
+    <div class="faq-a">Yes. Talkspace has bilingual therapists who offer sessions in English and Spanish. During the matching process, you can specify your language preference and we will prioritize therapists who can accommodate it.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Can I get medication for anxiety through Talkspace in California?</button>
+    <div class="faq-a">Yes. Talkspace offers psychiatric services in California. A board-certified psychiatrist can evaluate your symptoms via video and prescribe medication if clinically appropriate.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What is the difference between an LMFT and an LCSW in California?</button>
+    <div class="faq-a">Both are licensed mental health professionals in California. An LMFT (Licensed Marriage and Family Therapist) is trained in family systems and relationship dynamics. An LCSW (Licensed Clinical Social Worker) is trained in clinical social work and often works with individuals, families, and community systems. Both can provide evidence-based therapy for anxiety.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">How much does anxiety therapy cost in Los Angeles without insurance?</button>
+    <div class="faq-a">Without insurance, Talkspace plans are typically more affordable than in-person therapy in Los Angeles, where session rates can range from $150 to $250 or more. Visit our pricing page for current plan details.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">What types of anxiety does Talkspace treat?</button>
+    <div class="faq-a">Talkspace therapists treat a range of anxiety conditions including generalized anxiety disorder, social anxiety, panic disorder, health anxiety, phobias, performance anxiety, perinatal anxiety, and PTSD-related anxiety.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Is online therapy as effective as in-person therapy for anxiety?</button>
+    <div class="faq-a">Multiple studies support the effectiveness of online therapy for anxiety. Research published in the Journal of Anxiety Disorders found that internet-delivered CBT produced outcomes comparable to in-person therapy for generalized anxiety disorder and social anxiety. Online therapy also removes barriers such as commuting in LA traffic.</div>
+  </div>
+</div>
+
+<!-- CTA LA -->
+<div class="cta-section">
+  <h2>Ready to get started?</h2>
+  <p>Take the first step toward managing your anxiety with a licensed California therapist.</p>
+  <div class="cta-steps">
+    <div class="cta-step"><div class="num">1</div><div class="label">Complete assessment</div></div>
+    <div class="cta-step"><div class="num">2</div><div class="label">Get matched</div></div>
+    <div class="cta-step"><div class="num">3</div><div class="label">Start therapy</div></div>
+  </div>
+  <a href="https://match.talkspace.com/dispatcher" class="btn-primary" style="max-width:280px;margin:0 auto;display:block;text-decoration:none;color:#fff;text-align:center;">Get started today</a>
+</div>
+
+<!-- Explore LA -->
+<div class="explore-section">
+  <h2>Explore more therapists</h2>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(this,'la-explore')">By concern</button>
+    <button class="tab-btn" onclick="switchTab(this,'la-explore')">By insurance</button>
+    <button class="tab-btn" onclick="switchTab(this,'la-explore')">By therapy type</button>
+    <button class="tab-btn" onclick="switchTab(this,'la-explore')">By age group</button>
+  </div>
+  <div class="tab-panel active" data-group="la-explore">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/therapists/ca/depression">Depression therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/ptsd">PTSD therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/ocd">OCD therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/adhd">ADHD therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/couples">Couples therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/grief">Grief therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/trauma">Trauma therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/teens">Teen therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/eating-disorders">Eating disorder therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca">Perinatal therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/anger-management">Anger management therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca">Substance use therapists in LA</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+  <div class="tab-panel" data-group="la-explore">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/coverage/insurance/aetna">Aetna therapists in LA</a>
+      <a href="https://www.talkspace.com/coverage/insurance/cigna">Cigna therapists in LA</a>
+      <a href="https://www.talkspace.com/coverage/insurance/optum">UnitedHealthcare therapists in LA</a>
+      <a href="https://www.talkspace.com/coverage/insurance/blue-cross-blue-shield">Anthem Blue Cross therapists in LA</a>
+      <a href="https://www.talkspace.com/coverage/insurance/blue-cross-blue-shield">Blue Shield of CA therapists in LA</a>
+      <a href="https://www.talkspace.com/coverage/insurance/optum">Optum therapists in LA</a>
+      <a href="https://www.talkspace.com/coverage/insurance">Kaiser therapists in LA</a>
+      <a href="https://www.talkspace.com/coverage/insurance">Health Net therapists in LA</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+  <div class="tab-panel" data-group="la-explore">
+    <div class="link-grid">
+      <a href="https://www.talkspace.com/therapists/ca/cbt">CBT therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/dbt">DBT therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/emdr">EMDR therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/psychodynamic">Psychodynamic therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca/act">ACT therapists in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca">Somatic therapy in LA</a>
+    </div>
+  </div>
+  <div class="tab-panel" data-group="la-explore">
+    <div class="link-grid">
+      <a href="https://www.talkspace.com/therapists/ca/teens">Teen therapists (13-17) in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca">Young adult therapists (18-25) in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca">Adult therapists (26-64) in LA</a>
+      <a href="https://www.talkspace.com/therapists/ca">Senior therapists (65+) in LA</a>
+    </div>
+  </div>
+</div>
+
+<!-- Find in Other Places LA -->
+<div class="explore-section">
+  <h2>Find anxiety therapists in other places</h2>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab(this,'la-places')">Popular cities</button>
+    <button class="tab-btn" onclick="switchTab(this,'la-places')">States</button>
+  </div>
+  <div class="tab-panel active" data-group="la-places">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/therapists/ny">New York, NY</a>
+      <a href="https://www.talkspace.com/therapists/il">Chicago, IL</a>
+      <a href="https://www.talkspace.com/therapists/tx">Houston, TX</a>
+      <a href="https://www.talkspace.com/therapists/az">Phoenix, AZ</a>
+      <a href="https://www.talkspace.com/therapists/ca">San Diego, CA</a>
+      <a href="https://www.talkspace.com/therapists/ca">San Francisco, CA</a>
+      <a href="https://www.talkspace.com/therapists/tx">Dallas, TX</a>
+      <a href="https://www.talkspace.com/therapists/tx">Austin, TX</a>
+      <a href="https://www.talkspace.com/therapists/wa">Seattle, WA</a>
+      <a href="https://www.talkspace.com/therapists/fl">Miami, FL</a>
+      <a href="https://www.talkspace.com/therapists/co">Denver, CO</a>
+      <a href="https://www.talkspace.com/therapists/or">Portland, OR</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+  <div class="tab-panel" data-group="la-places">
+    <div class="link-grid collapsed">
+      <a href="https://www.talkspace.com/therapists/ny">New York</a>
+      <a href="https://www.talkspace.com/therapists/tx">Texas</a>
+      <a href="https://www.talkspace.com/therapists/fl">Florida</a>
+      <a href="https://www.talkspace.com/therapists/il">Illinois</a>
+      <a href="https://www.talkspace.com/therapists/pa">Pennsylvania</a>
+      <a href="https://www.talkspace.com/therapists/oh">Ohio</a>
+      <a href="https://www.talkspace.com/therapists/ga">Georgia</a>
+      <a href="https://www.talkspace.com/therapists/nc">North Carolina</a>
+      <a href="https://www.talkspace.com/therapists/mi">Michigan</a>
+      <a href="https://www.talkspace.com/therapists/nj">New Jersey</a>
+      <a href="https://www.talkspace.com/therapists/va">Virginia</a>
+      <a href="https://www.talkspace.com/therapists/wa">Washington</a>
+    </div>
+    <button class="show-all-btn" onclick="toggleShowAll(this)">Show all</button>
+  </div>
+</div>
+
+</div><!-- end city-la -->
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <h4>Therapy</h4>
+        <a href="https://www.talkspace.com/online-therapy/">Individual therapy</a>
+        <a href="https://www.talkspace.com/online-therapy/couples-therapy/">Couples therapy</a>
+        <a href="https://www.talkspace.com/online-therapy/teens">Teen therapy</a>
+        <a href="https://www.talkspace.com/psychiatry">Psychiatry</a>
+        <a href="https://www.talkspace.com/therapists">Find a therapist</a>
+      </div>
+      <div>
+        <h4>Conditions</h4>
+        <a href="https://www.talkspace.com/treatment/generalized-anxiety-disorder">Anxiety</a>
+        <a href="https://www.talkspace.com/treatment/depression">Depression</a>
+        <a href="https://www.talkspace.com/treatment/post-traumatic-stress-disorder">PTSD</a>
+        <a href="https://www.talkspace.com/treatment/obsessive-compulsive-disorder">OCD</a>
+        <a href="https://www.talkspace.com/treatment/bipolar-disorder">Bipolar disorder</a>
+      </div>
+      <div>
+        <h4>About</h4>
+        <a href="https://www.talkspace.com">About Talkspace</a>
+        <a href="https://www.talkspace.com/how-it-works">How it works</a>
+        <a href="https://www.talkspace.com/reviews">Reviews</a>
+        <a href="https://www.talkspace.com/online-therapy/pricing">Pricing</a>
+        <a href="https://business.talkspace.com">For business</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="https://help.talkspace.com/hc/en-us">Help center</a>
+        <a href="https://help.talkspace.com/hc/en-us">Contact us</a>
+        <a href="https://www.talkspace.com/privacy-policy">Privacy policy</a>
+        <a href="https://www.talkspace.com/terms-of-use">Terms of use</a>
+        <a href="https://www.talkspace.com/careers">Careers</a>
+      </div>
+    </div>
+    <div class="footer-crisis">
+      If you are in a life-threatening situation, do not use this site. Call the 988 Suicide &amp; Crisis Lifeline at 988. If you are in danger or need emergency help, call 911.
+    </div>
+    <div class="footer-copy">&copy; 2024 Talkspace. All rights reserved. This is a mockup for demonstration purposes only.</div>
+  </div>
+</div>
+
+<script>
+function switchCity(city) {
+  document.querySelectorAll('.city-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.city-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('city-' + city).classList.add('active');
+  const tabs = document.querySelectorAll('.city-tab');
+  if (city === 'ny') tabs[0].classList.add('active');
+  else tabs[1].classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleExpand(btn) {
+  const content = btn.nextElementSibling;
+  content.classList.toggle('open');
+  const arrow = btn.querySelector('span');
+  arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+}
+
+function toggleFaq(btn) {
+  const wasOpen = btn.classList.contains('open');
+  const section = btn.closest('.faq-section');
+  section.querySelectorAll('.faq-q').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
+  if (!wasOpen) { btn.classList.add('open'); btn.nextElementSibling.classList.add('open'); }
+}
+
+function switchTab(btn, group) {
+  const bar = btn.parentElement;
+  bar.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const idx = Array.from(bar.children).indexOf(btn);
+  const panels = [];
+  let el = bar.nextElementSibling;
+  while (el && el.classList.contains('tab-panel')) { panels.push(el); el = el.nextElementSibling; }
+  panels.forEach((p, i) => { p.classList.toggle('active', i === idx); });
+}
+
+function toggleShowAll(btn) {
+  const grid = btn.previousElementSibling;
+  const isCollapsed = grid.classList.contains('collapsed');
+  grid.classList.toggle('collapsed');
+  btn.textContent = isCollapsed ? 'Show less' : 'Show all';
+}
+</script>
